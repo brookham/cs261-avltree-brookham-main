@@ -37,8 +37,14 @@ class AVLTree:
         self.balance_factor = self._rebalance()
         
         if self.balance_factor > 1:
-            if node_to_insert.key < self.left.key:
-                return self._right_rotate()
+            if self.left.balance_factor < 0:
+                self.left = self.left._left_rotate()
+            return self._right_rotate()
+        if self.balance_factor < -1:
+            if self.right.balance_factor > 0:
+                self.right = self.right._right_rotate()
+            return self._left_rotate()         
+            
         return self
         
             
@@ -62,7 +68,19 @@ class AVLTree:
 
     # Left rotate around self
     def _left_rotate(self):
-        pass
+        new_root = self.right
+        n2 = new_root.left
+
+        new_root.left = self
+        self.right = n2
+
+        self.height = self._max_of_child_heights()
+        self.balance_factor = self._rebalance()
+
+        new_root.height = new_root._max_of_child_heights() + 1
+        new_root.balance_factor = new_root._rebalance()
+        
+        return new_root
     
     # Return the largest height of self's children 
     def _max_of_child_heights(self):
