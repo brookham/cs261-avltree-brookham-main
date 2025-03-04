@@ -142,54 +142,54 @@ class TestAVLTree(unittest.TestCase):
     Assume NO rotation machinery yet
     """
 
-    def test_height_insert_two_smaller_left(self):
-        """
-        Test 9: Inserting a node with a key that is less than the left child's key appends
-        the new node as the left child's left child. 
-        The height of each node is equal to the height of its largest child + 1
+    # def test_height_insert_two_smaller_left(self):
+    #     """
+    #     Test 9: Inserting a node with a key that is less than the left child's key appends
+    #     the new node as the left child's left child. 
+    #     The height of each node is equal to the height of its largest child + 1
     
-          5             5          
-         /     =>      /           
-        3             3           
-                     /
-                    1
+    #       5             5          
+    #      /     =>      /           
+    #     3             3           
+    #                  /
+    #                 1
        
-        """
-        avl_tree = AVLTree(5)
-        three = AVLTree(3)
-        one = AVLTree(1)
-        avl_tree = avl_tree.insert(three)
-        avl_tree = avl_tree.insert(one)
-        self.assertEqual(three, avl_tree.left)
-        self.assertEqual(one, avl_tree.left.left)
-        self.assertEqual(2, avl_tree.height)
-        self.assertEqual(1, avl_tree.left.height)
-        self.assertEqual(0, avl_tree.left.left.height)
+    #     """
+    #     avl_tree = AVLTree(5)
+    #     three = AVLTree(3)
+    #     one = AVLTree(1)
+    #     avl_tree = avl_tree.insert(three)
+    #     avl_tree = avl_tree.insert(one)
+    #     self.assertEqual(three, avl_tree.left)
+    #     self.assertEqual(one, avl_tree.left.left)
+    #     self.assertEqual(2, avl_tree.height)
+    #     self.assertEqual(1, avl_tree.left.height)
+    #     self.assertEqual(0, avl_tree.left.left.height)
        
 
-    def test_balance_factor_insert_two_smaller_left(self):
-        """
-        Test 10: Inserting a node with a key that is less than the left child's key appends
-        the new node as the left child's left child. 
-        The height of each node is equal to the height of its largest child + 1
+    # def test_balance_factor_insert_two_smaller_left(self):
+    #     """
+    #     Test 10: Inserting a node with a key that is less than the left child's key appends
+    #     the new node as the left child's left child. 
+    #     The height of each node is equal to the height of its largest child + 1
     
-          5             5          
-         /     =>      /           
-        3             3           
-                     /
-                    1
+    #       5             5          
+    #      /     =>      /           
+    #     3             3           
+    #                  /
+    #                 1
        
-        """
-        avl_tree = AVLTree(5)
-        three = AVLTree(3)
-        one = AVLTree(1)
-        avl_tree.insert(three)
-        avl_tree.insert(one)
-        self.assertEqual(three, avl_tree.left)
-        self.assertEqual(one, avl_tree.left.left)
-        self.assertEqual(2, avl_tree.balance_factor)
-        self.assertEqual(1, avl_tree.left.balance_factor)
-        self.assertEqual(0, avl_tree.left.left.balance_factor)
+    #     """
+    #     avl_tree = AVLTree(5)
+    #     three = AVLTree(3)
+    #     one = AVLTree(1)
+    #     avl_tree.insert(three)
+    #     avl_tree.insert(one)
+    #     self.assertEqual(three, avl_tree.left)
+    #     self.assertEqual(one, avl_tree.left.left)
+    #     self.assertEqual(2, avl_tree.balance_factor)
+    #     self.assertEqual(1, avl_tree.left.balance_factor)
+    #     self.assertEqual(0, avl_tree.left.left.balance_factor)
        
 
     #********************************************
@@ -198,48 +198,48 @@ class TestAVLTree(unittest.TestCase):
     # COMMENT OUT TESTS 9 & 10 BEFORE PROCEEDING
     #************************************************
    
-    # def test_return_root_insert_two_smaller(self):
-    #     """
-    #     Test 11: Insert returns the root of the three
+    def test_return_root_insert_two_smaller(self):
+        """
+        Test 11: Insert returns the root of the three
     
-    #        5             5           
-    #              =>     /     
-    #                    3           
+           5             5           
+                 =>     /     
+                       3           
                       
                      
-    #     """
-    #     avl_tree = five = AVLTree(5)
-    #     three = AVLTree(3)
-    #     avl_tree_root=avl_tree.insert(three)
-    #     self.assertEqual(five, avl_tree_root)
+        """
+        avl_tree = five = AVLTree(5)
+        three = AVLTree(3)
+        avl_tree_root=avl_tree.insert(three)
+        self.assertEqual(five, avl_tree_root)
 
     
-    # # """
-    # # Toddler, two-level trees.
-    # # Insertion
-    # # Left Imbalance, right rotation
-    # # # """    
-    # def test_right_rotate_insert_two_smaller(self):
-    #     """
-    #     Test 12: Inserting a node with a key that is less than the left child's key 
-    #     causes a right rotation
+    # """
+    # Toddler, two-level trees.
+    # Insertion
+    # Left Imbalance, right rotation
+    # # """    
+    def test_right_rotate_insert_two_smaller(self):
+        """
+        Test 12: Inserting a node with a key that is less than the left child's key 
+        causes a right rotation
     
-    #               5           3
-    #              /    =>     / \  
-    #             3           1   5
-    #            /
-    #           1
+                  5           3
+                 /    =>     / \  
+                3           1   5
+               /
+              1
        
-    #     HINT:  create a right_rotate method
-    #     """
-    #     avl_tree = five = AVLTree(5)
-    #     three = AVLTree(3)
-    #     one = AVLTree(1)
-    #     avl_tree=avl_tree.insert(three)
-    #     avl_tree=avl_tree.insert(one)
-    #     self.assertEqual(three, avl_tree)
-    #     self.assertEqual(one, avl_tree.left)
-    #     self.assertEqual(five, avl_tree.right)
+        HINT:  create a right_rotate method
+        """
+        avl_tree = five = AVLTree(5)
+        three = AVLTree(3)
+        one = AVLTree(1)
+        avl_tree=avl_tree.insert(three)
+        avl_tree=avl_tree.insert(one)
+        self.assertEqual(three, avl_tree)
+        self.assertEqual(one, avl_tree.left)
+        self.assertEqual(five, avl_tree.right)
 
 
     # def test_height_right_rotate_insert_two_smaller(self):
