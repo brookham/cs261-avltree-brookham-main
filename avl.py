@@ -35,6 +35,7 @@ class AVLTree:
         #You'll need to add code here
         self.height = self._max_of_child_heights() + 1
         self.balance_factor = self._rebalance()
+        return self
         
             
     # Here are some helper functions you may want to create

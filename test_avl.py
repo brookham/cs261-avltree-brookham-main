@@ -167,29 +167,29 @@ class TestAVLTree(unittest.TestCase):
         self.assertEqual(0, avl_tree.left.left.height)
        
 
-    # def test_balance_factor_insert_two_smaller_left(self):
-    #     """
-    #     Test 10: Inserting a node with a key that is less than the left child's key appends
-    #     the new node as the left child's left child. 
-    #     The height of each node is equal to the height of its largest child + 1
+    def test_balance_factor_insert_two_smaller_left(self):
+        """
+        Test 10: Inserting a node with a key that is less than the left child's key appends
+        the new node as the left child's left child. 
+        The height of each node is equal to the height of its largest child + 1
     
-    #       5             5          
-    #      /     =>      /           
-    #     3             3           
-    #                  /
-    #                 1
+          5             5          
+         /     =>      /           
+        3             3           
+                     /
+                    1
        
-    #     """
-    #     avl_tree = AVLTree(5)
-    #     three = AVLTree(3)
-    #     one = AVLTree(1)
-    #     avl_tree.insert(three)
-    #     avl_tree.insert(one)
-    #     self.assertEqual(three, avl_tree.left)
-    #     self.assertEqual(one, avl_tree.left.left)
-    #     self.assertEqual(2, avl_tree.balance_factor)
-    #     self.assertEqual(1, avl_tree.left.balance_factor)
-    #     self.assertEqual(0, avl_tree.left.left.balance_factor)
+        """
+        avl_tree = AVLTree(5)
+        three = AVLTree(3)
+        one = AVLTree(1)
+        avl_tree.insert(three)
+        avl_tree.insert(one)
+        self.assertEqual(three, avl_tree.left)
+        self.assertEqual(one, avl_tree.left.left)
+        self.assertEqual(2, avl_tree.balance_factor)
+        self.assertEqual(1, avl_tree.left.balance_factor)
+        self.assertEqual(0, avl_tree.left.left.balance_factor)
        
 
     #********************************************
