@@ -52,7 +52,7 @@ class AVLTree:
         new_root.right = self
         self.left = left_node
 
-        self.height = self._max_of_child_heights() + 1
+        self.height = self._max_of_child_heights()
         new_root.height = new_root._max_of_child_heights() + 1
 
         return new_root
