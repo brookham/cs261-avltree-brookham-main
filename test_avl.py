@@ -56,33 +56,33 @@ class TestAVLTree(unittest.TestCase):
         self.assertEqual(1, avl_tree.height)
         self.assertEqual(0, avl_tree.left.height)
         
-    # def test_height_single_equal(self):
-    #     """
-    #     Test 4: Inserting a node into a single-level tree appends the new node as the
-    #     left child, when the new node value is equal to the the parent's key.
-    #     (A new node whose key is <= parent key becomes the left child.)
-    #     The height of each node is equal to the height of its largest child + 1
-    #     """
-    #     avl_tree = AVLTree(5)
-    #     child = AVLTree(5)
-    #     avl_tree.insert(child)
-    #     self.assertEqual(child, avl_tree.left)
-    #     self.assertEqual(1, avl_tree.height)
-    #     self.assertEqual(0, avl_tree.left.height)
+    def test_height_single_equal(self):
+        """
+        Test 4: Inserting a node into a single-level tree appends the new node as the
+        left child, when the new node value is equal to the the parent's key.
+        (A new node whose key is <= parent key becomes the left child.)
+        The height of each node is equal to the height of its largest child + 1
+        """
+        avl_tree = AVLTree(5)
+        child = AVLTree(5)
+        avl_tree.insert(child)
+        self.assertEqual(child, avl_tree.left)
+        self.assertEqual(1, avl_tree.height)
+        self.assertEqual(0, avl_tree.left.height)
 
-    # def test_height_single_greater(self):
-    #     """
-    #     Test 5: Inserting a node into a single-level tree appends the new node as the
-    #     right child, when the new node key is greater than the parent's key.
-    #     (A new node whose key is > parent key becomes the right child.)
-    #     The height of each node is equal to the height of its largest child + 1
-    #     """
-    #     avl_tree = AVLTree(5)
-    #     child = AVLTree(7)
-    #     avl_tree.insert(child)
-    #     self.assertEqual(child, avl_tree.right)
-    #     self.assertEqual(1, avl_tree.height)
-    #     self.assertEqual(0, avl_tree.right.height)
+    def test_height_single_greater(self):
+        """
+        Test 5: Inserting a node into a single-level tree appends the new node as the
+        right child, when the new node key is greater than the parent's key.
+        (A new node whose key is > parent key becomes the right child.)
+        The height of each node is equal to the height of its largest child + 1
+        """
+        avl_tree = AVLTree(5)
+        child = AVLTree(7)
+        avl_tree.insert(child)
+        self.assertEqual(child, avl_tree.right)
+        self.assertEqual(1, avl_tree.height)
+        self.assertEqual(0, avl_tree.right.height)
 
     # """
     # Cute, single-level trees. (Depth of zero.)
