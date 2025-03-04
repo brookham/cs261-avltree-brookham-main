@@ -34,6 +34,8 @@ class AVLTree:
                 self.right.insert(node_to_insert)
         #You'll need to add code here
         self.height = self._max_of_child_heights() + 1
+        self.balance_factor = self._rebalance()
+        
             
     # Here are some helper functions you may want to create
     # Right rotate around self
@@ -46,11 +48,16 @@ class AVLTree:
     
     # Return the largest height of self's children 
     def _max_of_child_heights(self):
-        return max(self.left.height if self.left else -1, self.right.height if self.right else -1)
+        return max(self.left.height if self._has_left_child() else 0, self.right.height if self._has_right_child() else 0)
         
     # Return balance factor of self 
     def _rebalance(self):
-        pass
+        if self.left and self.right:
+            return self.left.height - self.right.height
+        if self.left and not self.right:
+            return self.left.height + 1
+        else:
+            return - self.right.height + 1
 
    
     def search(self, key_to_find):

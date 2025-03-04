@@ -84,87 +84,87 @@ class TestAVLTree(unittest.TestCase):
         self.assertEqual(1, avl_tree.height)
         self.assertEqual(0, avl_tree.right.height)
 
-    # """
-    # Cute, single-level trees. (Depth of zero.)
-    # Insertion
-    # When inserting a node, calculate the balance factor of each node 
-    # """
+    """
+    Cute, single-level trees. (Depth of zero.)
+    Insertion
+    When inserting a node, calculate the balance factor of each node 
+    """
 
-    # def test_balance_factor_single_smaller(self):
-    #     """
-    #     Test 6: Inserting a node into a single-level tree appends the new node as the
-    #     left child, when the new node key is less than the parent's key.
-    #     (A new node whose key is <= parent key becomes the left child.)
-    #     The balance factor of each node is equal to the height of its left sub-tree 
-    #     minus the height of its right subtree
-    #     """
-    #     avl_tree = AVLTree(5)
-    #     child = AVLTree(1)
-    #     avl_tree.insert(child)
-    #     self.assertEqual(child, avl_tree.left)
-    #     self.assertEqual(1, avl_tree.balance_factor)
-    #     self.assertEqual(0, avl_tree.left.balance_factor)
+    def test_balance_factor_single_smaller(self):
+        """
+        Test 6: Inserting a node into a single-level tree appends the new node as the
+        left child, when the new node key is less than the parent's key.
+        (A new node whose key is <= parent key becomes the left child.)
+        The balance factor of each node is equal to the height of its left sub-tree 
+        minus the height of its right subtree
+        """
+        avl_tree = AVLTree(5)
+        child = AVLTree(1)
+        avl_tree.insert(child)
+        self.assertEqual(child, avl_tree.left)
+        self.assertEqual(1, avl_tree.balance_factor)
+        self.assertEqual(0, avl_tree.left.balance_factor)
         
-    # def test_balance_factor_single_equal(self):
-    #     """
-    #     Test 7: Inserting a node into a single-level tree appends the new node as the
-    #     left child, when the new node value is equal to the the parent's key.
-    #     (A new node whose key is <= parent key becomes the left child.)
-    #     The balance factor of each node is equal to the height of its left sub-tree 
-    #     minus the height of its right subtree
-    #     """
-    #     avl_tree = AVLTree(5)
-    #     child = AVLTree(5)
-    #     avl_tree.insert(child)
-    #     self.assertEqual(child, avl_tree.left)
-    #     self.assertEqual(1, avl_tree.height)
-    #     self.assertEqual(0, avl_tree.left.height)
+    def test_balance_factor_single_equal(self):
+        """
+        Test 7: Inserting a node into a single-level tree appends the new node as the
+        left child, when the new node value is equal to the the parent's key.
+        (A new node whose key is <= parent key becomes the left child.)
+        The balance factor of each node is equal to the height of its left sub-tree 
+        minus the height of its right subtree
+        """
+        avl_tree = AVLTree(5)
+        child = AVLTree(5)
+        avl_tree.insert(child)
+        self.assertEqual(child, avl_tree.left)
+        self.assertEqual(1, avl_tree.height)
+        self.assertEqual(0, avl_tree.left.height)
 
-    # def test_balance_factor_single_greater(self):
-    #     """
-    #     Test 8: Inserting a node into a single-level tree appends the new node as the
-    #     right child, when the new node key is greater than the parent's key.
-    #     (A new node whose key is > parent key becomes the right child.)
-    #     The balance factor of each node is equal to the height of its left sub-tree 
-    #     minus the height of its right subtree
-    #     """
-    #     avl_tree = AVLTree(5)
-    #     child = AVLTree(7)
-    #     avl_tree.insert(child)
-    #     self.assertEqual(child, avl_tree.right)
-    #     self.assertEqual(1, avl_tree.height)
-    #     self.assertEqual(0, avl_tree.right.height)
+    def test_balance_factor_single_greater(self):
+        """
+        Test 8: Inserting a node into a single-level tree appends the new node as the
+        right child, when the new node key is greater than the parent's key.
+        (A new node whose key is > parent key becomes the right child.)
+        The balance factor of each node is equal to the height of its left sub-tree 
+        minus the height of its right subtree
+        """
+        avl_tree = AVLTree(5)
+        child = AVLTree(7)
+        avl_tree.insert(child)
+        self.assertEqual(child, avl_tree.right)
+        self.assertEqual(1, avl_tree.height)
+        self.assertEqual(0, avl_tree.right.height)
 
-    # """
-    # Toddler, two-level trees. (Depth of one.)
-    # Insertion
-    # Calculate height and balance factor
-    # Assume NO rotation machinery yet
-    # """
+    """
+    Toddler, two-level trees. (Depth of one.)
+    Insertion
+    Calculate height and balance factor
+    Assume NO rotation machinery yet
+    """
 
-    # def test_height_insert_two_smaller_left(self):
-    #     """
-    #     Test 9: Inserting a node with a key that is less than the left child's key appends
-    #     the new node as the left child's left child. 
-    #     The height of each node is equal to the height of its largest child + 1
+    def test_height_insert_two_smaller_left(self):
+        """
+        Test 9: Inserting a node with a key that is less than the left child's key appends
+        the new node as the left child's left child. 
+        The height of each node is equal to the height of its largest child + 1
     
-    #       5             5          
-    #      /     =>      /           
-    #     3             3           
-    #                  /
-    #                 1
+          5             5          
+         /     =>      /           
+        3             3           
+                     /
+                    1
        
-    #     """
-    #     avl_tree = AVLTree(5)
-    #     three = AVLTree(3)
-    #     one = AVLTree(1)
-    #     avl_tree = avl_tree.insert(three)
-    #     avl_tree = avl_tree.insert(one)
-    #     self.assertEqual(three, avl_tree.left)
-    #     self.assertEqual(one, avl_tree.left.left)
-    #     self.assertEqual(2, avl_tree.height)
-    #     self.assertEqual(1, avl_tree.left.height)
-    #     self.assertEqual(0, avl_tree.left.left.height)
+        """
+        avl_tree = AVLTree(5)
+        three = AVLTree(3)
+        one = AVLTree(1)
+        avl_tree = avl_tree.insert(three)
+        avl_tree = avl_tree.insert(one)
+        self.assertEqual(three, avl_tree.left)
+        self.assertEqual(one, avl_tree.left.left)
+        self.assertEqual(2, avl_tree.height)
+        self.assertEqual(1, avl_tree.left.height)
+        self.assertEqual(0, avl_tree.left.left.height)
        
 
     # def test_balance_factor_insert_two_smaller_left(self):
