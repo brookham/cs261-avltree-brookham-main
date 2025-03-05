@@ -36,6 +36,7 @@ class AVLTree:
         self.height = self._max_of_child_heights() + 1
         self.balance_factor = self._rebalance()
         
+        
         if self.balance_factor > 1:
             if self.left.balance_factor < 0:
                 self.left = self.left._left_rotate()
@@ -58,9 +59,9 @@ class AVLTree:
         self.left = n2
 
         self.height = self._max_of_child_heights()
-        self.balance_factor = self._rebalance()
-
         new_root.height = new_root._max_of_child_heights() + 1
+
+        self.balance_factor = self._rebalance()
         new_root.balance_factor = new_root._rebalance()
         
         return new_root
